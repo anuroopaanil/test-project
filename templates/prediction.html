@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Application</title>
+</head>
+<body>
+    <h1>Iris Django Aplication </h1>
+    
+    <form method="post" action="{% url 'predictor' %}">
+        {% csrf_token %}
+        <input type="text" name="sepal_length" placeholder="Sepal Length" required>
+        <input type="text" name="sepal_width" placeholder="Sepal Width" required>
+        <input type="text" name="petal_length" placeholder="Petal Length" required>
+        <input type="text" name="petal_width" placeholder="Petal Width" required>
+        <button type="submit">Predict</button>
+    </form>
+    {% if result %}
+        <p>The predicted class is: {{ result }}</p>
+    {% endif %}
+</body>
+</html>
