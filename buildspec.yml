@@ -16,12 +16,15 @@ phases:
     commands:
       - echo Prebuild ops
       - pip3 install -r requirements.txt
+      - pip3 install --upgrade pip
   build:
     commands:
       - echo Building the application 
+      - echo Build ops
   post_build:
     commands:
       - echo Build completed on `date`
+      - echo Postbuild ops
 artifacts:
   files:
     - '**/*'
